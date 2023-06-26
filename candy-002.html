@@ -15,56 +15,26 @@
         const chars2 = ["O", "Q", "R", "S"]
 
         function missingChar(chars) {
-      
-            let word = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","t","s","t","u","v","w","x","y","z"]
-            let upperCaseword 
-            let code = []
-            let comparisonArr = []
-            let awsCode = 0
-            let wordCode
-            let asw = ''
-
-            let arrayCode = chars1.map((char)=>{
-                // console.log(char.charCodeAt(0), char.charAt(0))
-                code.push(char.charCodeAt(0)) //字串轉code
-                return char.charCodeAt(0)
-            })
-            // console.log(code)
-            console.log(arrayCode)
-            for (let i = code[0]; i < code[code.length-1] + 1; i++) {
-                // console.log(String.fromCharCode(i)) //code轉字串
-                comparisonArr.push(i)
+            //原本卡在大小寫判斷，但聽過同學說後發現，英文陣列都是一串一起的，a到z是連貫，A到Z是連貫
+            let arrayCode = chars.map((char)=> char.charCodeAt(0) )
+            for ( let i = 0 ; i < arrayCode.length -1; i++ ) {
+                console.log(arrayCode [i]+1)
+                console.log(arrayCode [i+1])
+                //arrayCode[i]+1 是表示連續的數
+                //arrayCode [i]+1 是表示字母的code+1
+                if ( arrayCode [i]+1 !== arrayCode [i+1] ) { 
+                    return String.fromCharCode( arrayCode [i]+1 );
+                }
             }
-            console.log(comparisonArr)
-            comparisonArr.forEach(value=>{
-                console.log(code.includes(value))
-                if(!code.includes(value) ){
-                    awsCode = value
-                }
-            })
-            console.log(awsCode)
-            word.forEach(value=>{
-                let wordCode = value.charCodeAt(0)
-                if(wordCode === awsCode){
-                    asw = value
-                }
-            })
-            // console.log(asw)
-            return asw
-            
         }
-            
-            
         console.log(missingChar(chars1)) // 印出 e
-        // console.log(missingChar(chars2)) // 印出 P
+        console.log(missingChar(chars2)) // 印出 P
 
         // 提示：
         // 可使用字串的 charCodeAt 方法...
 
         // 資料來源:
-            // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt
-            // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode
-            // https://coding-ontheway.coderbridge.io/2020/07/19/mtr04-w2-d14/
+            // 同學的講解
     </script>
 </body>
 </html>
