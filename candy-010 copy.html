@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>010</title>
+</head>
+<body>
+    
+    <script>
+        // 編號：CANDY-010
+        // 程式語言：JavaScript
+        // 題目：把數字以 10 進位展開式呈現，數字均為大於 0 的正整數
+        // 範例：9527 變成 "1000 x 9 + 100 x 5 + 10 x 2 + 7"
+
+        function expandedForm(num) {
+            let numArr = Array.from(num + "")
+            let digt = []
+            let numWord = []
+            let str = ""
+            let strCollection = []
+            for(let i = 0; i< numArr.length; i++){
+                digt = numArr[i].padEnd(numArr.length-i,"0")
+                numWord.unshift(digt)
+            }
+            numWord.forEach((numLetter, index)=>{
+                if(Number(numLetter) !== 0){
+                    // console.log(numLetter.replace(numLetter[0], '1'))
+                    let replaceDigt = numLetter.replace(numLetter[0], '1')
+                    if(replaceDigt !== "1"){
+                        // console.log(numLetter[0])
+                        // console.log(replaceDigt)
+                        str = `${replaceDigt} * ${numLetter[0]}`
+                        strCollection.push(str)
+                    }
+                    if(replaceDigt == "1"){
+                        str = `${numLetter[0]}`
+                        strCollection.push(str)
+                    }
+                }
+
+                // console.log(Number(numLetter))
+            })
+            return strCollection.reverse()
+                                .join(" + ")
+                                         
+            
+        }
+
+        console.log(expandedForm(8)); // 印出 8
+        console.log(expandedForm(25)); // 印出 10 x 2 + 5
+        console.log(expandedForm(148)); // 印出 100 x 1 + 10 x 4 + 8
+        console.log(expandedForm(1450)); // 印出 1000 x 1 + 100 x 4 + 10 x 5
+        console.log(expandedForm(60308)); // 印出 10000 x 6 + 100 x 3 + 8
+    </script>
+</body>
+</html>
