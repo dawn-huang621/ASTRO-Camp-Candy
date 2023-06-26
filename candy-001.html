@@ -16,11 +16,10 @@
 
 
         function sumOfSmallestValues(arr) {
-            let sum = 0;
             // 如果直接排序會因為十位數字出錯，所以使用a-b就是升冪排序，a-b是前一個數字減掉後面的數字，如果答案比0小，a會排在b前面，如果比0大，則相反，如果等於0，則不會改變a和b的順序
             let newarr = arr.sort((a, b)=> a - b)
             //將排序大小後，最前面(最小)兩個數相加
-            return sum = newarr[0] + newarr [1] 
+            return newarr[0] + newarr [1] 
         }
 
         const list1 = [19, 5, 42, 2, 77]
