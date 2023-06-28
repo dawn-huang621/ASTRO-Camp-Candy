@@ -14,37 +14,18 @@
         // 範例：9527 變成 "1000 x 9 + 100 x 5 + 10 x 2 + 7"
 
         function expandedForm(num) {
-            let numArr = Array.from(num + "")
-            let digt = []
-            let numWord = []
-            let str = ""
-            let strCollection = []
+            let numArr = Array.from( num + "" )
+            let str = []
             for(let i = 0; i< numArr.length; i++){
-                digt = numArr[i].padEnd(numArr.length-i,"0")
-                numWord.unshift(digt)
-            }
-            numWord.forEach((numLetter, index)=>{
-                if(Number(numLetter) !== 0){
-                    // console.log(numLetter.replace(numLetter[0], '1'))
-                    let replaceDigt = numLetter.replace(numLetter[0], '1')
-                    if(replaceDigt !== "1"){
-                        // console.log(numLetter[0])
-                        // console.log(replaceDigt)
-                        str = `${replaceDigt} * ${numLetter[0]}`
-                        strCollection.push(str)
-                    }
-                    if(replaceDigt == "1"){
-                        str = `${numLetter[0]}`
-                        strCollection.push(str)
-                    }
+                let isZeroTime = 0
+                if(numArr[i] !== "0"){
+                    isZeroTime += 1
+                    let exponent = Math.pow(10, numArr.length -(i + isZeroTime) )
+                    str.push(`${exponent} * ${numArr[i]}`)
                 }
-
-                // console.log(Number(numLetter))
-            })
-            return strCollection.reverse()
-                                .join(" + ")
-                                         
-            
+            }
+            return str.join(' + ')
+                      .replace(`1 * `, "")
         }
 
         console.log(expandedForm(8)); // 印出 8
