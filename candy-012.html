@@ -15,12 +15,16 @@
 
         const numberReducer = (num) => {
         // 實作寫在這裡
-            let firstnumArr = Array.from(num + "")
-                              .map(numStr=> Number(numStr))
-                              .reduce((ac, cv) => ac + cv )
-            return Array.from(firstnumArr + "")
-                        .map(numStr=> Number(numStr))
-                        .reduce((ac, cv) => ac + cv )
+            let firstnumArr = 10
+            while (firstnumArr < 9) {
+                firstnumArr = Array.from(num + "")
+                                .map(numStr=> Number(numStr))
+                                .reduce((ac, cv) => ac + cv )
+            }
+            return firstnumArr
+            // return Array.from(firstnumArr + "")
+            //             .map(numStr=> Number(numStr))
+            //             .reduce((ac, cv) => ac + cv )
         }
 
         console.log(numberReducer(9527)) // 印出 5
