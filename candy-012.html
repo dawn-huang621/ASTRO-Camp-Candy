@@ -15,18 +15,17 @@
 
         const numberReducer = (num) => {
         // 實作寫在這裡
-            let firstnumArr = 10
-            while (firstnumArr < 9) {
-                firstnumArr = Array.from(num + "")
+            let firstnumArr = num;
+            while (firstnumArr > 9) {
+                firstnumArr = Array.from(firstnumArr + "")
                                 .map(numStr=> Number(numStr))
-                                .reduce((ac, cv) => ac + cv )
+                                .reduce((ac, cv) => ac + cv );
             }
             return firstnumArr
-            // return Array.from(firstnumArr + "")
-            //             .map(numStr=> Number(numStr))
-            //             .reduce((ac, cv) => ac + cv )
         }
 
+        //資料來源:
+            // 助教提供while迴圈，如果符合條件就一直執行
         console.log(numberReducer(9527)) // 印出 5
         console.log(numberReducer(1450)) // 印出 1
         console.log(numberReducer(5566108)) // 印出 4
