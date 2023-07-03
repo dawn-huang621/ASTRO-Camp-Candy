@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>014</title>
+    <title>016</title>
 </head>
 <body>
     <script>
@@ -13,12 +13,27 @@
         // 範例："hello_world" -> "helloWorld"
 
         function toCamelCase(str) {
-        // 實作寫在這裡
-            Array.from(str).forEach()
+            let result = ""
+            let upperCaseArr = []
+            for(let i = 0; i<str.length; i++){
+                if(str[i] === '_'){
+                    let upperCase = str[i+1].toUpperCase();
+                    result+= "" +  upperCase 
+                } else {
+                    result+= str[i] 
+                }
+            }
+            result.split("")
+            // for(let i = 0; i<result.length; i++){
+            //         // console.log(result.charCodeAt(i))
+            //     if(result.charCodeAt(i) > 97 && result.charCodeAt(i) < 123 ){
+            //         console.log(result[i])
+            //     }
+            // }
         }
 
-        console.log(toCamelCase("book")) // book
-        console.log(toCamelCase("book_store")) // bookStore
+        // console.log(toCamelCase("book")) // book
+        // console.log(toCamelCase("book_store")) // bookStore
         console.log(toCamelCase("get_good_score")) // getGoodScore
     </script>
 </body>
