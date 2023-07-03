@@ -14,12 +14,13 @@
 
         function uniqueOrder(sequence) {
         // 實作寫在這裡
-            // console.log(typeof sequence)
-            if(typeof sequence === "string"){
-                sequence = Array.from(sequence)
+            let filterRepeat = []
+            for(let i = 0; i < sequence.length; i++){
+                if(sequence[i] !== sequence[i+1]){
+                    filterRepeat.push(sequence[i])
+                }
             }
-            let ans = sequence.filter((el, idx)=> el !== sequence[idx+1] )
-            return ans
+            return filterRepeat
         };
 
         console.log(uniqueOrder("AABCC")) // [ 'A', 'B', 'C']
