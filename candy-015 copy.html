@@ -16,16 +16,15 @@
 
         function splitString(str) {
         // 實作寫在這裡
-            let ans = []
-            if(str.length % 2 == 1){
-                str = str.padEnd(str.length + 1, "_")
-            }
-            for(let i = 0; i < str.length; i++){
-                if(i%2 === 0){
-                    ans.push(str[i].concat('', str[i+1]))
-                }
-            }
-            return ans
+            let pairedStr = '';
+            let ansArr = [];
+            (str.length % 2 === 0) ?  (pairedStr = str) : (pairedStr = str.padEnd(str.length + 1, "_"));
+            Array.from(pairedStr).map((el, idx)=>{
+                if( idx % 2 === 1){
+                    ansArr.push(`${Array.from(pairedStr)[idx -1]}${el}`);
+                };
+            });
+            return ansArr;
         };
 
         console.log(splitString("abcdef")) // ["ab", "cd", "ef"]
