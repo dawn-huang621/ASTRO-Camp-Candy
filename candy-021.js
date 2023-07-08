@@ -7,7 +7,7 @@ class Stack {
         this.data = []
     }
     push (el) {
-        this.data.push(el)
+        el && this.data.push(el)
     }
 
     pop () {
